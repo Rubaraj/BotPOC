@@ -1,0 +1,67 @@
+<ion-menu [type]="menuType" content-id="main-content">
+  <ion-header>
+    <ion-toolbar >
+      <ion-title slot="start" >Menu</ion-title>
+      <ion-menu-toggle slot="end">
+        <!-- <ion-button>Click to close the menu</ion-button> -->
+        <ion-button fill="clear" ><ion-icon name="close-outline"></ion-icon></ion-button>
+      </ion-menu-toggle>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-text-center">
+    <ion-menu-toggle>
+      <ion-grid>
+        <ion-row>
+          <ion-col style="align-items: center;">
+            <ion-button>Check policy Status</ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button>Check Plan Details</ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button>Submit Enrollment</ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="isDarkMode">
+          <ion-col>
+            <ion-button (click)="toggleTheme($event)" fill="clear" ><ion-icon  style="color: white;" name="sunny-sharp"></ion-icon> <ion-label style="color: white;">&nbsp; Light Mode</ion-label></ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col *ngIf="isLightMode" >
+            <ion-button (click)="toggleTheme($event)" fill="clear"><ion-icon style="color: black;" name="moon-sharp"></ion-icon><ion-label style="color: black;">&nbsp;Dark Mode</ion-label></ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-menu-toggle>
+  </ion-content>
+</ion-menu>
+
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+
+    <div class="ion-page" id="main-content" slot="start">
+      <ion-menu-toggle>
+        <ion-button><ion-icon name="menu"></ion-icon></ion-button>
+      </ion-menu-toggle>
+    </div>
+
+    <ion-title slot="end">
+      ABC Health Care
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+
+    </ion-toolbar>
+  </ion-header>
+</ion-content>

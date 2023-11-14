@@ -1,0 +1,7 @@
+{
+  "name": "SunHealthInsurance",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
