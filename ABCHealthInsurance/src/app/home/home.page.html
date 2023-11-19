@@ -1,115 +1,22 @@
-<ion-menu [type]="menuType" content-id="main-content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title slot="start">Settings</ion-title>
-      <ion-menu-toggle slot="end">
-        <!-- <ion-button>Click to close the menu</ion-button> -->
-        <ion-button fill="clear"><ion-icon name="close-outline"></ion-icon></ion-button>
-      </ion-menu-toggle>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content class="ion-text-center">
-    <ion-menu-toggle>
-      <ion-grid>
-        <ion-row *ngIf="isDarkMode">
-          <ion-col>
-            <ion-button (click)="toggleTheme($event)" fill="clear"><ion-icon style="color: white;"
-                name="sunny-sharp"></ion-icon> <ion-label style="color: white;">&nbsp; Light
-                Mode</ion-label></ion-button>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col *ngIf="isLightMode">
-            <ion-button (click)="toggleTheme($event)" fill="clear"><ion-icon style="color: black;"
-                name="moon-sharp"></ion-icon><ion-label style="color: black;">&nbsp;Dark Mode</ion-label></ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-menu-toggle>
-  </ion-content>
-</ion-menu>
-
-<ion-header [translucent]="true">
-  <ion-toolbar color="primary">
-
-    <div class="ion-page" id="main-content" slot="start">
-      <ion-menu-toggle>
-        <ion-button><ion-icon name="settings-outline"></ion-icon></ion-button>
-      </ion-menu-toggle>
-    </div>
-
-    <ion-title slot="end">
-      <ion-grid>
-        <ion-row>
-          <ion-col sizeLg="11" sizeMd="11" sizeXs="11" style="align-self: center;">
-            <div>
-              <ion-label>ABC Health Care</ion-label>
-            </div>
-          </ion-col>
-          <ion-col sizeLg="1" sizeMd="1" sizeXs="1">
-            <div>
-              <ion-label><img src="assets/abc.png" style="width: 55%;"></ion-label>
-            </div>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-title>
-
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
   <div class="wrapper">
     <ion-grid>
-      <ion-row>
-        <ion-col>
-          <ion-card color="primary" class="DashCard">
-            <div class="cardImgCenter"><img class="imgSize" alt="Search Enrollment" src="assets/SearchEnrollment.png" /></div>
-            <ion-card-header>
-              <ion-card-title>Enrollment Status</ion-card-title>
-              <ion-card-subtitle>Enrollment</ion-card-subtitle>
-            </ion-card-header>
-            <ion-card-content>
-              Click here to check Enrollment Status.
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-        <ion-col>
-          <ion-card color="primary" class="DashCard">
-            <div class="cardImgCenter"><img class="imgSize" alt="Plan Details" src="assets/Asset4.png" /></div>
-            <ion-card-header>
-              <ion-card-title>Plan Details</ion-card-title>
-              <ion-card-subtitle>Plans</ion-card-subtitle>
-            </ion-card-header>
-            <ion-card-content>
-              Click here to check available plans and its details.
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-        <ion-col>
-          <ion-card color="primary" class="DashCard">
-            <div class="cardImgCenter"><img class="imgSize" alt="Submit Enrollment" src="assets/SubmitDocument.png" /></div>
-            <ion-card-header>
-              <ion-card-title>Submit Enrollment</ion-card-title>
-              <ion-card-subtitle>Enrollment</ion-card-subtitle>
-            </ion-card-header>
-            <ion-card-content>
-              Click here to submit new enrollment.
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-        <ion-col>
-          <ion-card color="primary" class="DashCard">
-            <div class="cardImgCenter"><img class="imgSize" alt="24X7Support" src="assets/Asset5.png" /></div>
-            <ion-card-header>
-              <ion-card-title>24 X 7 Support</ion-card-title>
-              <ion-card-subtitle>Assistant</ion-card-subtitle>
-            </ion-card-header>
-
-            <ion-card-content>
-              Click Here to get support for enrollment.
-            </ion-card-content>
-          </ion-card>
+      <ion-row >
+        <ion-col *ngFor="let tiles of dashboardTitles">
+          <div class="dvwrapper">
+            <div class="ion-activatable ripple-parent custom-parent">
+              <ion-card color="primary" class="DashCard" (click)="dashboardTileClicked(tiles.tileType,tiles.routeLink)">
+                <div class="cardImgCenter"><img class="imgSize" alt="Search Enrollment" [src]="tiles.imgLocation" /></div>
+                <ion-card-header>
+                  <ion-card-title>{{tiles.title}}</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  {{tiles.description}}
+                </ion-card-content> 
+              </ion-card>
+              <ion-ripple-effect></ion-ripple-effect>
+            </div>
+          </div>
         </ion-col>
       </ion-row>
     </ion-grid>

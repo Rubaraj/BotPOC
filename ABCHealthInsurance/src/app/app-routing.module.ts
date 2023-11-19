@@ -11,6 +11,30 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'header',
+    loadChildren: () => import('./layout/header/header.module').then( m => m.HeaderPageModule)
+  },
+  {
+    path: 'enrollment-status',
+    loadChildren: () => import('./page/enrollment-status/enrollment-status.module').then( m => m.EnrollmentStatusPageModule)
+  },
+  {
+    path: 'plan-details',
+    loadChildren: () => import('./page/plan-details/plan-details.module').then( m => m.PlanDetailsPageModule)
+  },
+  {
+    path: 'submit-enrollment',
+    loadChildren: () => import('./page/submit-enrollment/submit-enrollment.module').then( m => m.SubmitEnrollmentPageModule)
+  },
+  {
+    path: 'support-assistant',
+    loadChildren: () => import('./page/support-assistant/support-assistant.module').then( m => m.SupportAssistantPageModule)
+  },
+  {
+    path: 'enrollment-status',
+    loadChildren: () => import('./page/enrollment-status/enrollment-status.module').then( m => m.EnrollmentStatusPageModule)
+  },
 ];
 
 @NgModule({
