@@ -1,4 +1,17 @@
 <ion-app>
   <app-header></app-header>
-    <ion-router-outlet></ion-router-outlet>
+  <ion-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col sizeLg="11" sizeMd="11" sizeXs="11">
+          <ion-router-outlet></ion-router-outlet>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div style="height: 100%;  ">
+      <app-chat-window></app-chat-window>
+    </div>
+  </ion-content>
+
 </ion-app>
